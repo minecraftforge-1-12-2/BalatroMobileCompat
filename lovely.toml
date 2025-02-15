@@ -87,9 +87,16 @@ match_indent = true
 
 [[patches]]
 [patches.pattern]
-target = "functions/main.lua"
+target = "main.lua"
 pattern = "if (love.system.getOS() == 'OS X' ) and (jit.arch == 'arm64' or jit.arch == 'arm') then jit.off() end"
 position = "at"
 payload = ''
 match_indent = true
 
+[[patches]]
+[patches.pattern]
+target = "game.lua"
+pattern = "function Game:splash_screen()"
+position = "after"
+payload = "G.SETTINGS.skip_splash = 'Yes'"
+match_indent = true
