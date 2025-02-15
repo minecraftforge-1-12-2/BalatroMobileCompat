@@ -100,3 +100,11 @@ pattern = "function Game:splash_screen()"
 position = "after"
 payload = "G.SETTINGS.skip_splash = 'Yes'"
 match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = "game.lua"
+pattern = "if G.SPLASH_BACK then"
+position = "at"
+payload = "if false then"
+match_indent = true
